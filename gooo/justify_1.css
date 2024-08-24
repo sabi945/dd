@@ -1,0 +1,43 @@
+/* .container {
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgb(162, 101, 101);
+    margin: 0 auto  ;
+    display: flex;
+    flex-wrap: wrap;
+}
+.container div {
+    text-align: center;
+    font-size: 50px;
+}
+.kotak_1 {
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+    
+}
+.kotak_2 {
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+}
+.kotak_3 {
+    height: 150px;
+    width: 200px;
+    background-color: rgb(142, 81, 81);
+}
+.kotak_4 {
+    width: 150px;
+    height: 150px;
+    background-color: brown;
+    
+}
+.kotak_5 {
+    width: 250px;
+    height: 150px;
+    flex: 1;
+    background-color: chartreuse;
+} */
+.halo,.siji{
+    background-color: aqua;
+}

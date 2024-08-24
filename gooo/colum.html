@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .colum {
+      columns: 2;
+      column-gap: 20px; /* Jarak antar kolom */
+    }
+
+    .colum p:first-child {
+      column-span: all;  /* Memastikan bahwa paragraf pertama menyeberang semua kolom */
+      column-width: 500px; /* Lebar kolom pertama */
+      border-right: 2px solid;
+      
+    }
+    
+
+    .colum p {
+      margin-bottom: 20px; /* Margin antar paragraf */
+    }
+  </style>
+  <title>Dua Kolom dengan Lebar Berbeda</title>
+</head>
+<body>
+  <div class="baso">
+    <section class="colum">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim repellendus soluta provident totam molestiae rem recusandae autem iure, veniam fugit. Vitae aperiam est optio repellat tempora, temporibus impedit laudantium mollitia.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam facilis perspiciatis, possimus consequuntur ratione temporibus? Cupiditate, beatae nobis. Itaque distinctio corrupti ipsa quisquam sunt corporis? Delectus dicta animi minima accusantium!</p>
+    </section>
+  </div>
+</body>
+</html>

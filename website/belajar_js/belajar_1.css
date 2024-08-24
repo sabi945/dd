@@ -1,0 +1,87 @@
+/* body {
+    margin: 0;
+}
+
+
+.container {
+    background-image: url(baso.png);
+    background-size: cover;
+    width: 80%;
+    height: 590px;
+    background-position: center;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    min-height: 500px;
+    position: relative;
+
+
+}
+p {
+    color: rgb(250, 251, 252);
+    z-index: 2;
+}
+h1 {
+    z-index: 2;
+}
+
+.pembungkus {
+    width: 100%;
+    position: absolute;
+    
+    height: 500px;
+    background-color: black;
+    opacity: 0.3;
+    
+}
+ */
+
+/* akhir dari penggunaan gambar di timpah */
+
+
+
+/* penggunaan overvlow */
+/* body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+      width: 400px;
+      height: 200px;
+      overflow-wrap: break-word; 
+      border: 1px solid #ccc;
+      padding: 10px;
+    } */
+/* akhir dari penggunaan overvlow */
+
+
+/* .container {
+    width: var(--baso-siji);
+
+}
+
+.long-text {
+    white-space: pre-wrap;
+
+    text-transform:inherit ;
+}
+:root {
+    --baso-siji: 100px;
+}
+   */
+
+   .container {
+    width: 300px;
+    padding: 20px;
+    background-color: rgba(121, 90, 90, 0.5); /* Set background color with transparency */
+    backdrop-filter: blur(100px); /* Apply blur effect to the background */
+    position: sticky;
+  }
+  
+  .content {
+    color: rgb(29, 24, 24);
+    text-align: center;
+  }
+
+
+    

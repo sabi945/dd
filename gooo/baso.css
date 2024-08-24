@@ -1,0 +1,75 @@
+/* .penampungan {
+    text-align:center;
+    height: 300px;
+    width: 300px;
+    background-color: aquamarine;
+    margin-left: 500px;
+    display: flex;
+    justify-content: center;
+}
+.huruf {
+    font-size: 20px;
+    font-family: 'arial', sans-serif;
+}
+.siji ul li {
+    display: inline;
+}
+.tulisan {
+    width: 500px;
+    height: 200px;
+    border: 2px solid black;
+}
+.siji {
+    text-align-last: right;
+}
+p.p {
+    text-align-last: center;
+}
+.basos {
+    max-width: 200px;
+    border: 2px solid black;
+    margin-left: 100px;
+} */
+
+/* .tulis {
+    width: 400px;
+    height: 200px;
+    border: 1px solid black;
+    margin: 0 auto;
+    margin-top: 180px;
+}
+.tulis p {
+    line-height: 20px;
+    letter-spacing: .1px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+} */
+
+/* .link p a {
+
+text-decoration: underline;
+cursor: all-scroll;
+}
+.link p a:visited{
+    opacity: .4;
+    color: aqua;
+}
+.link p a:focus {
+    color: chocolate;
+} */
+
+ul li {
+    list-style-type: number;
+    list-style-position: inside;
+    text-align: center;
+    line-height: 15px;
+    display: block;
+}
+.bass {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin: 0 auto;
+    line-height: 40px;
+}

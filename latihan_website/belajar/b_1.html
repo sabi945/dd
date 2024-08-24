@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Drag and Drop Example</title>
+    <style>
+      #drag1 {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin-bottom: 10px;
+      }
+      #dropzone {
+        width: 200px;
+        height: 200px;
+        border: 2px dashed #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="drag1" draggable="true">Drag me</div>
+
+    <div id="dropzone">Drop here</div>
+    <input type="text" placeholder="masukkan nama" />
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let dragItem = document.getElementById("drag1");
+        let dropZone = document.getElementById("dropzone");
+
+        // Event listener untuk memulai drag
+        dragItem.addEventListener("dragstart", function (event) {
+          event.dataTransfer.setData("text/plain", event.target.id);
+          event.target.style.opacity = "0.5";
+        });
+
+        // Event listener untuk saat drag sedang berlangsung
+        dragItem.addEventListener("drag", function (event) {
+          console.log("Dragging...");
+        });
+
+        // Event listener untuk menyelesaikan drag
+        dragItem.addEventListener("dragend", function (event) {
+          event.target.style.opacity = "";
+        });
+
+        // Event listener untuk memungkinkan drop
+        dropZone.addEventListener("dragover", function (event) {
+          event.preventDefault(); // Ini diperlukan untuk mengizinkan drop
+        });
+
+        // Event listener untuk menangani drop
+        dropZone.addEventListener("drop", function (event) {
+          event.preventDefault();
+          let data = event.dataTransfer.getData("text");
+          let draggedElement = document.getElementById(data);
+          dropZone.appendChild(draggedElement);
+        });
+      });
+    </script>
+  </body>
+</html>

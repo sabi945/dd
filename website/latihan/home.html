@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+        nav {
+            width: 100%;
+            background-color: #007bff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(145deg, #007bff, #6610f2);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            color: white;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        #download {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /* Tambahkan gaya untuk loader */
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 6px solid #3498db;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
+        }
+        /* Animasi spinner */
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="container">
+        <h1>Welcome to Our Homepage</h1>
+        <p>Powered by Amazon S3</p>
+        <input type="file" id="upload" accept="image/*">
+        <br>
+        <div id="loader" class="loader" style="display: none;"></div> <!-- Tambahkan loader -->
+        <canvas id="canvas"></canvas>
+        <br>
+        <button id="download">Download Image</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+    <script>
+        document.getElementById('upload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            const loader = document.getElementById('loader');
+            
+            reader.onload = function(e) {
+                loader.style.display = 'block'; // Tampilkan loader
+                const img = new Image();
+                img.onload = function() {
+                    const canvas = document.getElementById('canvas');
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, canvas.width, canvas.height); // Bersihkan canvas untuk gambar baru
+                    ctx.drawImage(img, 0, 0, img.width, img.height);
+                    
+                    Caman('#canvas', function () {
+                        this.revert(false); // Pastikan CamanJS memulai dengan keadaan gambar asli
+                        this.sharpen(20).render(function() {
+                            loader.style.display = 'none'; // Sembunyikan loader setelah pemrosesan selesai
+                            document.getElementById('download').addEventListener('click', function() {
+                                const canvas = document.getElementById('canvas');
+                                const image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+                                const link = document.createElement('a');
+                                link.download = 'edited-image.png';
+                                link.href = image;
+                                link.click();
+                                // Bersihkan canvas setelah mengunduh
+                                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                                // Reset input file agar pengguna dapat mengunggah file yang sama lagi jika diinginkan
+                                document.getElementById('upload').value = '';
+                            }, {once: true}); // Pastikan event listener untuk unduhan hanya ditambahkan sekali
+                        });
+                    });
+                };
+                img.src = e.target.result;
+            };
+            
+            reader.readAsDataURL(file);
+        });
+
+        // Pindahkan event listener untuk tombol download ke luar dari event listener 'change'
+        document.getElementById('download').addEventListener('click', function() {
+            const canvas = document.getElementById('canvas');
+            const image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+            const link = document.createElement('a');
+            link.download = 'edited-image.png';
+            link.href = image;
+            link.click();
+            // Bersihkan canvas setelah mengunduh
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Reset input file agar pengguna dapat mengunggah file yang sama lagi jika diinginkan
+            document.getElementById('upload').value = '';
+        }, {once: true}); // Event listener ini tidak perlu ditambahkan lebih dari sekali
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+import shutil
+import os
+
+
+file_nya = "mv.py"
+path = "/Users/mahdi/Desktop/pemograman/python_3/python_3"
+
+
+ambil = shutil.move(file_nya, path)

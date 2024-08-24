@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manipulasi Tautan</title>
+</head>
+<body>
+
+<h1>Daftar Tautan</h1>
+<ul id="linkList">
+  <li><a href="#section1">Tautan ke Bagian 1</a></li>
+  <li><a href="#section2">Tautan ke Bagian 2</a></li>
+  <li><a href="#section3">Tautan ke Bagian 3</a></li>
+</ul>
+
+<script>
+    // Ambil semua tautan dalam dokumen
+var anchors = document.anchors;
+
+// Lakukan iterasi melalui setiap tautan dan tambahkan event listener
+anchors.forEach(function(anchor) {
+  anchor.addEventListener('click', function(event) {
+    // Contoh: Log URL dari tautan yang diklik
+    console.log('URL tautan:', anchor.href);
+    
+    // Contoh: Ubah warna teks tautan yang diklik
+    anchor.style.color = 'red';
+    
+    // Contoh: Hentikan perilaku default dari tautan
+    event.preventDefault();
+  });
+});
+
+</script>
+</body>
+</html>

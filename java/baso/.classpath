@@ -1,0 +1,15 @@
+baso/
+|-- src/
+|   |-- main/
+|       |-- java/
+|           |-- oop/
+|               |-- Main.java
+|-- lib/
+|   |-- external-library.jar
+|-- external/
+|   |-- MyExternalClass.java
+|-- .classpath
+|-- .project
+|-- .vscode/
+|   |-- settings.json
+|   |-- tasks.json

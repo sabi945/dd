@@ -1,0 +1,25 @@
+{
+	
+	"Print to console": {
+		"prefix": "baso",
+		"body": [
+			"#include <iostream>",
+            "using namespace std;",
+            "",
+            "int main() {",
+            "\t return 0;",
+            "}"
+		],
+		"description": "Log output to console"
+	},
+
+	"For Loop": {
+		"prefix": "forloop",
+		"body": [
+		  "for (int i = 0; i < $1; i++) {",
+		  "    // Your code here",
+		  "}"
+		],
+		"description": "Inserts a basic for loop structure"
+	  }
+}

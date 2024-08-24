@@ -1,0 +1,3 @@
+([('class_hari',
+   '/Users/mahdi/Desktop/pemograman/python_3/dist/class_hari',
+   'EXECUTABLE')],)
